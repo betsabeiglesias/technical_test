@@ -10,6 +10,8 @@
 # define NB_PER_THREAD		"numbers_per_thread"
 # define THREAD_NUM			"thread_num"
 
+#define EVEN				0
+#define ODD					1
 
 # define ERR_NB_ARGS		1
 # define ERR_ROOT_FILE		2
@@ -17,6 +19,7 @@
 # define ERR_EXT_FILE		4
 # define ERR_NO_DATA		5
 # define ERR_INT_MAX		6
+
 
 
 

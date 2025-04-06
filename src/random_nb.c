@@ -23,7 +23,7 @@ int *get_rand_nb(int total)
 	return (arr);
 }
 
-int is_duplicated(int *arr, int size, int value)
+int	is_duplicated(int *arr, int size, int value)
 {
 	int i;
 

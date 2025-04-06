@@ -37,5 +37,5 @@ void	destroy_mutex(t_data *data)
 		perror("destroy_mutex even: ");
 
 	if (pthread_mutex_destroy(&data->m_odd) != 0)
-		perror("destroy_mutex odd: ");
+		perror("destroy_mutex : ");
 }
