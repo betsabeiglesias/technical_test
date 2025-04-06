@@ -21,9 +21,9 @@ int main(int argc, char **argv)
 
 	printf("ODD\n");
 	print_list(data.odd);
-		
-    return (EXIT_SUCCESS);
 
+	destroy_mutex(&data);
+	return (EXIT_SUCCESS);
 }
 
 void init_data(t_data *data)

@@ -30,10 +30,6 @@ char	**ft_split(char const *s, char c);
 void	init_data(t_data *data);
 void	print_list(t_list *list);
 
-/* random_nb.c */
-int		*get_rand_nb(int total);
-int		is_duplicated(int *arr, int size, int value);
-
 /* threads.c */
 int		init_threads(t_data *data);
 int		join_threads(t_data *data);
@@ -43,5 +39,6 @@ void	destroy_mutex(t_data *data);
 void	*routine(void *arg);
 void	add_node(t_list **list, int num, t_data *data, int class);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+int		is_duplicated(int *arr, int size, int value);;
 
 # endif

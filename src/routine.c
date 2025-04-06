@@ -4,18 +4,31 @@ void	*routine(void *arg)
 {
 	t_data *data;
 	int		*arr;
+	int		num;
 	int		i;
+	unsigned int seed;
 
 	data = (t_data *)arg;
-	arr = get_rand_nb(data->nb_per_thread);
 	i = 0;
+	seed = time(NULL) ^ pthread_self();
+	arr = malloc(sizeof(int) * data->nb_per_thread);
+	if (!arr)
+	{
+		perror("routine: ");
+		return  (NULL);
+	}
 	while (i < data->nb_per_thread)
 	{
-		if(arr[i] % 2 == 0)
-			add_node(&data->even, arr[i], data, EVEN);
-		else
-			add_node(&data->odd, arr[i], data, ODD);
-		i++;
+		num = rand_r(&seed);
+		if (!is_duplicated(arr, i, num))
+		{
+			arr[i] = num;
+			if(arr[i] % 2 == 0)
+				add_node(&data->even, arr[i], data, EVEN);
+			else
+				add_node(&data->odd, arr[i], data, ODD);
+			i++;
+		}
 	}
 	free(arr);
 	return (NULL) ;
@@ -52,4 +65,18 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 	new->next = *lst;
 	*lst = new;
+}
+
+int	is_duplicated(int *arr, int size, int value)
+{
+	int i;
+
+	i = 0;
+	while(i < size)
+	{
+		if (arr[i] == value)
+			return (EXIT_FAILURE);
+		i++;
+	}
+	return (EXIT_SUCCESS);
 }
