@@ -16,5 +16,11 @@ int	handle_error(int error_type)
 		print_error(ERR_MSG_ROOT_FILE, 1);
 	if (error_type == ERR_ARGS)
 		print_error(ERR_MSG_ARGS, 1);
+	if (error_type == ERR_EXT_FILE)
+		print_error(ERR_MSG_EXT_FILE, 1);
+	if (error_type == ERR_NO_DATA)
+		print_error(ERR_MSG_NO_DATA, 1);
+	if (error_type == ERR_INT_MAX)
+		print_error(ERR_MSG_INT_MAX, 1);
 	return (EXIT_FAILURE);
 }
