@@ -33,4 +33,9 @@ void	init_data(t_data *data);
 int		*get_rand_nb(int total);
 int		is_duplicated(int *arr, int size, int value);
 
+/* threads.c */
+int		init_threads(t_data *data);
+int		join_threads(t_data *data);
+void	destroy_mutex(t_data *data);
+
 # endif

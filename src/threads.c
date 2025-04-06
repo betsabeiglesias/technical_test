@@ -30,3 +30,12 @@ int join_threads(t_data *data)
 	}
 	return (EXIT_SUCCESS);
 }
+
+void	destroy_mutex(t_data *data)
+{
+	if (pthread_mutex_destroy(&data->m_even) != 0)
+		perror("destroy_mutex even: ");
+
+	if (pthread_mutex_destroy(&data->m_odd) != 0)
+		perror("destroy_mutex odd: ");
+}
