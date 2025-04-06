@@ -29,4 +29,8 @@ char	**ft_split(char const *s, char c);
 /* main.c */
 void	init_data(t_data *data);
 
+/* random_nb.c */
+int		*get_rand_nb(int total);
+int		is_duplicated(int *arr, int size, int value);
+
 # endif
