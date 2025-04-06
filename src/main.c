@@ -9,19 +9,13 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	if (check_file(argv[2], &data) != EXIT_SUCCESS)
 		return (EXIT_FAILURE);
-	
 	if (init_threads(&data) != EXIT_SUCCESS)
 		return(EXIT_FAILURE);
-	
 	if (join_threads(&data) != EXIT_SUCCESS)
 		return(EXIT_FAILURE);
-	
-	printf("EVEN\n");
-	print_list(data.even);
-
-	printf("ODD\n");
-	print_list(data.odd);
-
+	final_list(data.even, "EVEN");
+	final_list(data.odd, "ODD");
+	free(data.th);
 	destroy_mutex(&data);
 	return (EXIT_SUCCESS);
 }
@@ -37,7 +31,7 @@ void init_data(t_data *data)
 	pthread_mutex_init(&data->m_odd, NULL);
 }
 
-void	print_list(t_list *list)
+void print_list(t_list *list)
 {
 	int	i;
 
@@ -46,8 +40,10 @@ void	print_list(t_list *list)
 		return ;
 	while(list)
 	{
+		printf("Position %d:\t", i);
 		printf("%d\n", list->nb);
 		list = list->next;
 		i++;
 	}
+	printf("\n");
 }
