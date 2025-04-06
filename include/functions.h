@@ -1,5 +1,5 @@
 #ifndef FUNCTIONS_H
-# define FUNCTIONS_h
+# define FUNCTIONS_H
 
 /* check_args.c*/
 int	check_args(int argc, char **argv);
